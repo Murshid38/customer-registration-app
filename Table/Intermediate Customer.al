@@ -2,8 +2,8 @@ table 50100 "Intermediate Customer"
 {
     Caption = 'Intermediate Customer';
     DataClassification = ToBeClassified;
-    LookupPageId = "Intermediate Customers";
-    DrillDownPageId = "Intermediate Customers";
+    LookupPageId = "Intermediate Customer List";
+    DrillDownPageId = "Intermediate Customer Card";
     DataCaptionFields = No, Name;
 
     fields

@@ -1,6 +1,6 @@
-page 50100 "Intermediate Customer"
+page 50100 "Intermediate Customer Card"
 {
-    Caption = 'Intermediate Customer';
+    Caption = 'Intermediate Customer Card';
     PageType = Card;
     SourceTable = "Intermediate Customer";
 

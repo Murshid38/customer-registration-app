@@ -1,11 +1,11 @@
-page 50101 "Intermediate Customers"
+page 50101 "Intermediate Customer List"
 {
     Caption = 'Intermediate Customers';
     PageType = List;
     UsageCategory = Lists;
     ApplicationArea = All;
     SourceTable = "Intermediate Customer";
-    CardPageId = "Intermediate Customer";
+    CardPageId = "Intermediate Customer Card";
     DataCaptionFields = No, Name;
 
     layout
