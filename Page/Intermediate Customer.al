@@ -3,6 +3,7 @@ page 50100 "Intermediate Customer Card"
     Caption = 'Intermediate Customer Card';
     PageType = Card;
     SourceTable = "Intermediate Customer";
+    RefreshOnActivate = true;
 
     layout
     {

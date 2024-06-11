@@ -7,6 +7,7 @@ page 50101 "Intermediate Customer List"
     SourceTable = "Intermediate Customer";
     CardPageId = "Intermediate Customer Card";
     DataCaptionFields = No, Name;
+    RefreshOnActivate = true;
 
     layout
     {
