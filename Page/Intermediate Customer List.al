@@ -30,20 +30,4 @@ page 50101 "Intermediate Customer List"
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-
-                trigger OnAction();
-                begin
-
-                end;
-            }
-        }
-    }
 }

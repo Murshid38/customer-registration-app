@@ -16,7 +16,7 @@ table 50100 "Intermediate Customer"
         {
             DataClassification = ToBeClassified;
         }
-        field(3; "Approval Status"; enum IntermediateCustomerStatus)
+        field(3; "Approval Status"; enum "Intermediate Customer Status")
         {
             DataClassification = ToBeClassified;
         }
