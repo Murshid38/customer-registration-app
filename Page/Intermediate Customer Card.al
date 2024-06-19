@@ -27,19 +27,25 @@ page 50100 "Intermediate Customer Card"
         }
     }
 
-    // actions
-    // {
-    //     area(Processing)
-    //     {
-    //         action(ActionName)
-    //         {
-    //             ApplicationArea = All;
+    actions
+    {
+        area(Processing)
+        {
+            action("Convert To Customer")
+            {
+                ApplicationArea = All;
+                Image = ChangeCustomer;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
 
-    //             trigger OnAction()
-    //             begin
-
-    //             end;
-    //         }
-    //     }
-    // }
+                trigger OnAction()
+                var
+                    Customer: Record Customer;
+                begin
+                    Rec.TestField("Approval Status", Rec."Approval Status"::Released);
+                end;
+            }
+        }
+    }
 }
