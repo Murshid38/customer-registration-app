@@ -15,19 +15,15 @@ page 50101 "Intermediate Customer List"
         {
             repeater(Group)
             {
-                field(No; Rec.No)
-                {
-                    ApplicationArea = All;
-                }
-                field(Name; Rec.Name)
-                {
-                    ApplicationArea = All;
-                }
-                field("Approval Status"; Rec."Approval Status")
-                {
-                    ApplicationArea = All;
-                }
+                field(No; Rec.No) { }
+                field(Name; Rec.Name) { }
+                field("Approval Status"; Rec."Approval Status") { }
             }
         }
     }
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        Rec.SetNoFromNoSeries();
+    end;
 }

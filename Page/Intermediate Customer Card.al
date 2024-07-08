@@ -4,6 +4,7 @@ page 50100 "Intermediate Customer Card"
     PageType = Card;
     SourceTable = "Intermediate Customer";
     RefreshOnActivate = true;
+    ApplicationArea = All;
 
     layout
     {
@@ -11,17 +12,16 @@ page 50100 "Intermediate Customer Card"
         {
             group(General)
             {
+                Caption = 'General';
+
                 field(No; Rec.No)
                 {
-                    ApplicationArea = All;
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                 }
                 field("Approval Status"; Rec."Approval Status")
                 {
-                    ApplicationArea = All;
                 }
             }
         }
@@ -33,19 +33,25 @@ page 50100 "Intermediate Customer Card"
         {
             action("Convert To Customer")
             {
+                Caption = 'Convert To Customer';
                 ApplicationArea = All;
                 Image = ChangeCustomer;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedOnly = true;
+                ToolTip = 'Convert Intermediate Customer to Customer.';
 
                 trigger OnAction()
                 var
-                    Customer: Record Customer;
                 begin
-                    Rec.TestField("Approval Status", Rec."Approval Status"::Released);
+                    Rec.ConvertToCustomer();
                 end;
             }
         }
     }
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        Rec.SetNoFromNoSeries();
+    end;
 }

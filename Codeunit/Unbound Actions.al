@@ -10,7 +10,7 @@ codeunit 50100 "Unbound Actions"
 
         if IntermediateCustomer."Approval Status" = IntermediateCustomer."Approval Status"::Open then begin
             IntermediateCustomer."Approval Status" := IntermediateCustomer."Approval Status"::"Pending Approval";
-            IntermediateCustomer.Modify();
+            IntermediateCustomer.Modify(true);
         end;
     end;
 
