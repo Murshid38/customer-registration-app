@@ -20,6 +20,15 @@ page 50101 "Intermediate Customer List"
                 field("Approval Status"; Rec."Approval Status") { }
             }
         }
+
+        area(FactBoxes)
+        {
+            part("Attached Document"; "Document Attachment Factbox")
+            {
+                Caption = 'Attachments';
+                SubPageLink = "Table ID" = const(Database::"Intermediate Customer"), "No." = field(No);
+            }
+        }
     }
 
     trigger OnNewRecord(BelowxRec: Boolean)

@@ -65,7 +65,7 @@ table 50100 "Intermediate Customer"
         Customer.Init();
         SalesReceivablesSetup.TestField("Customer Nos.");
         Customer."No." := NoSeries.GetNextNo(SalesReceivablesSetup."Customer Nos.");
-        Customer.Name := Rec.Name + ' Changed Code';
+        Customer.Name := Rec.Name;
         if not Customer.Insert(true) then
             Error(CannotCreateCustomerErr, Rec.No);
     end;

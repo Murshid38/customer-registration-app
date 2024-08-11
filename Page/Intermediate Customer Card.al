@@ -14,15 +14,9 @@ page 50100 "Intermediate Customer Card"
             {
                 Caption = 'General';
 
-                field(No; Rec.No)
-                {
-                }
-                field(Name; Rec.Name)
-                {
-                }
-                field("Approval Status"; Rec."Approval Status")
-                {
-                }
+                field(No; Rec.No) { }
+                field(Name; Rec.Name) { }
+                field("Approval Status"; Rec."Approval Status") { }
             }
         }
     }

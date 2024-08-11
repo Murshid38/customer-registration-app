@@ -11,6 +11,8 @@ page 50102 "Intermediate Customers - API"
     SourceTable = "Intermediate Customer";
     DelayedInsert = true;
     ODataKeyFields = SystemId;
+    Editable = false;
+    DataAccessIntent = ReadOnly;
 
     layout
     {
@@ -29,20 +31,17 @@ page 50102 "Intermediate Customers - API"
     [ServiceEnabled]
     [Scope('Cloud')]
     procedure SendApprovalRequest(var ActionContext: WebServiceActionContext)
-    var
-        IntermediateCustomerHandler: Codeunit "Intermediate Customer Handler";
     begin
         IntermediateCustomerHandler.SendApprovalRequest(ActionContext, Rec);
-        exit;
     end;
 
     [ServiceEnabled]
     [Scope('Cloud')]
     procedure ConvertToCustomer(var ActionContext: WebServiceActionContext)
-    var
-        IntermediateCustomerHandler: Codeunit "Intermediate Customer Handler";
     begin
         IntermediateCustomerHandler.ConvertToCustomer(ActionContext, Rec);
-        exit;
     end;
+
+    var
+        IntermediateCustomerHandler: Codeunit "Intermediate Customer Handler";
 }
