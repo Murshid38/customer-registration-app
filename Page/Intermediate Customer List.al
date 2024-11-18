@@ -1,4 +1,4 @@
-page 50101 "Intermediate Customer List"
+page 50702 "Intermediate Customer List"
 {
     Caption = 'Intermediate Customers';
     PageType = List;
@@ -18,6 +18,9 @@ page 50101 "Intermediate Customer List"
                 field(No; Rec.No) { }
                 field(Name; Rec.Name) { }
                 field("Approval Status"; Rec."Approval Status") { }
+                field(Address; Rec.Address) { }
+                field(City; Rec.City) { }
+                field(PhoneNo; Rec.PhoneNo) { }
             }
         }
 
@@ -27,6 +30,24 @@ page 50101 "Intermediate Customer List"
             {
                 Caption = 'Attachments';
                 SubPageLink = "Table ID" = const(Database::"Intermediate Customer"), "No." = field(No);
+            }
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(FileHandlingAction)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    InstreamObj: InStream;
+                begin
+                    File.UploadIntoStream('Upload a file', InstreamObj);
+                end;
             }
         }
     }

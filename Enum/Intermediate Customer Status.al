@@ -1,4 +1,4 @@
-enum 50100 "Intermediate Customer Status"
+enum 50701 "Intermediate Customer Status"
 {
     Extensible = true;
 

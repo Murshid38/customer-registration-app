@@ -1,4 +1,4 @@
-codeunit 50102 "Event Subscribers"
+codeunit 50701 "Event Subscribers"
 {
     #region Doc Attachment
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", OnBeforeDrillDown, '', false, false)]

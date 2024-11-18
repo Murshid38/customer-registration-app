@@ -1,4 +1,4 @@
-table 50100 "Intermediate Customer"
+table 50701 "Intermediate Customer"
 {
     Caption = 'Intermediate Customer';
     DataClassification = ToBeClassified;
@@ -24,11 +24,26 @@ table 50100 "Intermediate Customer"
             Caption = 'Approval Status';
             ToolTip = 'Specifies the approval status of the Intermediate Customer.';
         }
+        field(4; Address; Text[50])
+        {
+            Caption = 'Address';
+            ToolTip = 'Specifies the address of the customer.';
+        }
+        field(5; City; Text[30])
+        {
+            Caption = 'City';
+            ToolTip = 'Specifies the city of the customer.';
+        }
+        field(6; PhoneNo; Text[30])
+        {
+            Caption = 'Phone No.';
+            ToolTip = 'Specifies the Phone No of the customer.';
+        }
     }
 
     keys
     {
-        key(Key1; No)
+        key(PK; No)
         {
             Clustered = true;
         }
@@ -65,7 +80,11 @@ table 50100 "Intermediate Customer"
         Customer.Init();
         SalesReceivablesSetup.TestField("Customer Nos.");
         Customer."No." := NoSeries.GetNextNo(SalesReceivablesSetup."Customer Nos.");
-        Customer.Name := Rec.Name;
+        Customer.Validate(Name, Rec.Name);
+        Customer.Validate(Address, Rec.Address);
+        Customer.Validate(City, Rec.City);
+        Customer.Validate("Phone No.", Rec.PhoneNo);
+
         if not Customer.Insert(true) then
             Error(CannotCreateCustomerErr, Rec.No);
     end;
@@ -73,6 +92,14 @@ table 50100 "Intermediate Customer"
     trigger OnInsert()
     begin
         SetNoFromNoSeries();
+    end;
+
+    procedure GetStatusStyleText() StatusStyleText: Text
+    begin
+        if Rec."Approval Status" = Rec."Approval Status"::Open then
+            StatusStyleText := 'Favorable'
+        else
+            StatusStyleText := 'Strong';
     end;
 
     var
